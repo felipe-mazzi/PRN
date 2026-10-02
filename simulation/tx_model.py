@@ -127,20 +127,6 @@ def cw_ideal_dbm():
 # =============================================================================
 
 def mseq(nbits=10):
-    """
-    Generate one period of a maximal-length sequence (m-sequence) of 0/1 bits
-    with a Fibonacci LFSR (linear-feedback shift register).
-
-    How an LFSR works:
-      - a shift register of nbits bits, started in a non-zero state (all ones)
-      - each clock: output the last bit, compute the XOR of the tap bits,
-        shift everything one place, and insert the XOR result at the front
-    With primitive-polynomial taps, the register visits every non-zero state
-    exactly once, so the output repeats every 2^n - 1 bits.
-
-    This is also exactly what the FPGA version will do: one XOR gate and
-    a shift register, producing one chip per clock enable.
-    """
     taps = LFSR_TAPS[nbits]
     state = np.ones(nbits, dtype=np.int8)        # any non-zero start state works
     n = 2 ** nbits - 1                           # sequence period in chips
