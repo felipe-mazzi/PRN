@@ -59,7 +59,7 @@ module prn_player #(
     // block RAM port B. In "BRAM Controller" mode the Block Memory Generator uses
     // byte addresses on both ports, so word k is at byte address 32*k.
     (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *)
-    (* X_INTERFACE_PARAMETER = "MASTER_TYPE BRAM_CTRL, MEM_ECC NONE, MEM_WIDTH 256, READ_WRITE_MODE READ_ONLY" *)
+    (* X_INTERFACE_PARAMETER = "MASTER_TYPE BRAM_CTRL, MEM_ECC NONE, MEM_WIDTH 256, MEM_SIZE 262144, MEM_ADDRESS_MODE BYTE_ADDRESS, READ_WRITE_MODE READ_ONLY" *)
     output wire                 bram_clk,
     (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB RST" *)
     output wire                 bram_rst,

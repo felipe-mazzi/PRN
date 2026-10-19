@@ -45,7 +45,11 @@ make            # board files, block design, bitstream, timing check: about 1-2 
 ```
 This produces `base.bit` and `base.hwh`. Copying them to the board and loading them with `BaseOverlay` must behave like the original before anything is changed.
 
-### 4. Modify the block design (Vivado GUI)
+### 4. Modify the block design
+
+**Scripted (recommended):** open `base/base.xpr` in Vivado and, in the Tcl console, `source <repo>/fpga/add_prn_player.tcl`. It makes all the changes below, assigns the addresses (GPIO at `0xB0130000`, waveform memory at `0xB0140000`, 256 KiB), regenerates the wrapper and adds the constraints. Then continue with step 5. If a command in the script fails, do that part by hand as described here.
+
+**By hand (Vivado GUI):**
 1. `vivado base/base.xpr`, then open the block design `base`.
 2. *Add Sources → Add or create design sources* → `prn_player.v`.
 3. Double-click `radio`, then `transmitter`, then `channel_00` to open the hierarchy. Delete `amplitude_controller`.
@@ -62,7 +66,8 @@ This produces `base.bit` and `base.hwh`. Copying them to the board and loading t
    - GPIO `gpio_io_o[0]` → `arm_async`, `gpio_io_o[1]` → `free_run_async`, `gpio2_io_o` → `len_words_async` (use a *Slice* IP to split channel 1 into its two bits).
    - `aclk` → every clock pin (SmartConnect, BRAM controller, GPIO, prn_player `clk`); `aresetn` → every reset pin (prn_player `rst_n`).
 6. PPS: *Create Port* `pps_in` (input) at the top level, and pins of the same name on the `radio`, `transmitter` and `channel_00` hierarchies, so it reaches prn_player `pps_async`.
-7. *Address Editor*: assign the BRAM controller a **256 KiB** range (8192 words × 32 bytes) and the GPIO 64 KiB, both under `channel_00`. The old amplitude-controller segment is gone.
+7. *Address Editor*: GPIO at `0xB0130000` (64 KiB) and BRAM controller at `0xB0140000` (**256 KiB** = 8192 words × 32 bytes); both slots are free in the v3.1.1 base map. The old amplitude-controller segment (`0xB0100000`) is gone.
+   Set the prn_player parameter `READ_LAT` to the block RAM's port B read latency (shown in the Block Memory Generator's *Summary* tab; 1 in BRAM-controller mode without output registers).
 8. *Validate Design* (F6) and save.
 9. The top-level wrapper has to include the new `pps_in` port: in *Sources*, right-click `base.bd` → *Create HDL Wrapper* (let Vivado manage it), set it as top.
 10. Add `prn_player.xdc` as a constraints file (or append its lines to `vivado/constraints/base.xdc`).
