@@ -85,7 +85,9 @@ module prn_player_tb;
         if (arm && pps && !pps_q && pps_edge_cyc < 0 && !running)
             pps_edge_cyc = cyc;                               // first PPS edge after arming
 
-        if (tdata !== {DATA_W{1'b0}}) begin
+        if (!rst_n) begin
+            // still in reset (the output is undefined before the first clock edge): nothing to check
+        end else if (tdata !== {DATA_W{1'b0}}) begin
             if (first_cyc < 0) first_cyc = cyc;
             if (tdata[31:0] !== 32'hA500_0000 + expect) begin
                 errors = errors + 1;
