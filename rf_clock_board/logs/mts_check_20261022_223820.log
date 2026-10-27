@@ -1,0 +1,7 @@
+ 1: ADC T1 52/55; ADC PLL 62/66; DAC T1 58/57
+ 2: ADC T1 52/55; ADC PLL 62/66; DAC T1 58/57
+ 3: ADC T1 52/55; ADC PLL 62/66; DAC T1 57/57
+ 4: ADC T1 52/55; ADC PLL 61/66; DAC T1 57/57
+ 5: ADC T1 52/55; ADC PLL 61/66; DAC T1 58/57
+ 6: ADC T1 52/55; ADC PLL 61/66; DAC T1 58/57
+largest distance of a picked code from its record: 1 codes (warning above 6)

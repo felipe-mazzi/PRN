@@ -120,3 +120,21 @@ About 38 dB of gain is needed to reach the 21 dBm bench target: a driver amplifi
 The transmit bandpass filter must go before the PA. The 4.13 GHz image is 6 dB stronger than the carrier, 1.57 GHz away. The 0.785 GHz line must be filtered out too.
 Optional improvement: in a custom overlay with fs around 7.86 GSPS, 5.7 GHz would sit in zone 2 near mix-mode's peak, gaining a few dB and moving the images further away.
 Open item: lock the board's clocks, and the SA124B's reference input, to the FS725's 10 MHz. That removes the −6.5 ppm offset and is required for carrier-phase timing.
+
+9. RF-clock overlay (from 2026-10-22)
+
+Our board (S/N 8873292600AB, 192.168.2.100) now runs RF-clock 1.3.0.8, the two-way time transfer system developed with Haoyu Dong. Details, steps and results: rf_clock_board/README.md.
+
+Connector map, measured on this board:
+
+Software	Connector
+base overlay transmitter.channel[0]	DAC_B
+base overlay receiver.channel[0]	ADC_D
+base overlay receiver.channel[1]	ADC_C (ADC tile 224, same tile as ADC_D)
+base overlay receiver.channel[2], [3]	ADC_A / ADC_B (transfer() hangs in the base overlay)
+RF-clock TX	DAC_A (vout20, DAC tile 2)
+RF-clock RX	ADC_B (vin2_01, ADC tile 2)
+
+RF-clock clocking: FS725 10 MHz → EPG1 REF OUT (square wave) → external reference SMA; FS725 1PPS → EPG1 → PPS SMA J7. DAC 9.6 GS/s, ADC 4.8 GS/s, 800 MS/s complex baseband, 100 Mchip/s BPSK, RRC beta 0.25, carrier 5.8 GHz.
+
+Remote access: from the Mac, ssh RFSoC-AB (through RF-clock-PC, key ~/.ssh/id_ed25519_lab); xilinx has passwordless sudo on the board.

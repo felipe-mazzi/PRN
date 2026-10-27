@@ -1,0 +1,50 @@
+board 16908308541004718c70a080a0800003; boot state: degraded
+clock write 1: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 2: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 3: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 4: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 5: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 6: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 7: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 8: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 9: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 10: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 11: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 12: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 13: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 14: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 15: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 16: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 17: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 18: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 19: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+clock write 20: ADC VCO1 band 124 calibrated, DACISET 268, locked; DAC VCO1 band 126 calibrated, DACISET 256, locked
+ADC LMX2594 from band 124:
+  band 123: VCO1 band 123 forced (calibration chose 114), DACISET 270, locked
+  band 122: VCO1 band 122 forced (calibration chose 191), DACISET 269, locked
+  band 121: VCO1 band 121 forced (calibration chose 191), DACISET 269, locked
+  band 120: VCO1 band 120 forced (calibration chose 191), DACISET 269, locked
+  band 119: VCO1 band 119 forced (calibration chose 191), DACISET 269, locked
+  band 118: VCO1 band 118 forced (calibration chose 191), DACISET 269, locked
+  band 117: VCO1 band 117 forced (calibration chose 191), DACISET 269, locked
+  band 116: VCO1 band 116 forced (calibration chose 191), DACISET 270, locked
+  band 115: VCO1 band 115 forced (calibration chose 191), DACISET 270, locked
+  band 114: VCO1 band 114 forced (calibration chose 191), DACISET 270, NOT LOCKED (LD_VTUNE 0)
+  band 125: VCO2 band 125 forced (calibration chose 191), DACISET 327, NOT LOCKED (LD_VTUNE 0)
+DAC LMX2594 from band 126:
+  band 125: VCO1 band 125 forced (calibration chose 191), DACISET 256, locked
+  band 124: VCO1 band 124 forced (calibration chose 191), DACISET 256, locked
+  band 123: VCO1 band 123 forced (calibration chose 191), DACISET 256, locked
+  band 122: VCO1 band 122 forced (calibration chose 191), DACISET 256, locked
+  band 121: VCO1 band 121 forced (calibration chose 191), DACISET 256, locked
+  band 120: VCO1 band 120 forced (calibration chose 191), DACISET 256, locked
+  band 119: VCO1 band 119 forced (calibration chose 191), DACISET 257, locked
+  band 118: VCO1 band 118 forced (calibration chose 191), DACISET 257, locked
+  band 117: VCO1 band 117 forced (calibration chose 191), DACISET 257, NOT LOCKED (LD_VTUNE 0)
+  band 127: VCO2 band 127 forced (calibration chose 191), DACISET 319, NOT LOCKED (LD_VTUNE 0)
+ADC LMX2594: calibration picked 124 20x in 20 clock writes; bands 115-124 lock
+  suggested band 124, 9 above the lowest and 0 below the highest that lock: VCO1 band 124 forced (calibration chose 114), DACISET 270, locked
+DAC LMX2594: calibration picked 126 20x in 20 clock writes; bands 118-126 lock
+  suggested band 126, 8 above the lowest and 0 below the highest that lock: VCO1 band 126 forced (calibration chose 114), DACISET 256, locked
+die temperature 39.712 C
+written to /etc/rf-clock/board.json; the next PL.open forces these bands.  Record the MTS capture codes for them next (rf_clock.checks.mts_dtc record --write)

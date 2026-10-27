@@ -1,0 +1,13 @@
+ 1: ADC T1 52/55; ADC PLL 61/66; DAC T1 58/57
+ 2: ADC T1 52/55; ADC PLL 61/66; DAC T1 57/57
+ 3: ADC T1 52/55; ADC PLL 61/66; DAC T1 57/57
+ 4: ADC T1 52/55; ADC PLL 61/66; DAC T1 58/57
+ 5: ADC T1 52/55; ADC PLL 62/66; DAC T1 58/57
+ 6: ADC T1 52/55; ADC PLL 61/66; DAC T1 57/57
+ADC T1 tile 0: windows 52 (6x); recorded 52
+ADC T1 tile 2: windows 55 (6x); recorded 55
+ADC PLL tile 0: windows 61 (6x); recorded 61
+ADC PLL tile 2: windows 66 (6x); recorded 66
+DAC T1 tile 0: windows 58 (6x); recorded 58
+DAC T1 tile 2: windows 57 (6x); recorded 57
+written to /etc/rf-clock/board.json; PL.open picks these windows from now on
