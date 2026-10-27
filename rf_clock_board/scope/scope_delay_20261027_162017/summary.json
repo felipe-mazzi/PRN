@@ -1,0 +1,17 @@
+{
+  "idn": "LECROY,HDO9404-MS,LCRY4404N30414,8.5.1",
+  "start": "2026-10-27T16:20:17",
+  "resource": "USB0::0x05FF::0x1023::4404N30414::INSTR",
+  "pps_channel": "C1",
+  "dac_channel": "C3",
+  "signal": "edge",
+  "screenshot": "saved",
+  "points": 10002,
+  "sample_interval_s": 5.00000006675716e-11,
+  "acquisitions": 121,
+  "valid": 121,
+  "mean_ns": 174.93567853782858,
+  "sdev_ps": 26.95017636222421,
+  "min_ns": 174.86941394970535,
+  "max_ns": 174.99708127708936
+}
