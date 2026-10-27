@@ -58,6 +58,7 @@ Following `reference/rf_clock_v1.3.0.8/docs/board_setup.md` section 4.
 | 2026-10-27 | **M2 analog** (scope, square wave, mixer bypassed) | board: `$run -m rf_clock.checks.m2_tx_timing 240 --waveform square --scope-nco 0 --amplitude 32000 --offset-ticks 0`; PC: `experiments/scope_delay_capture.py --seconds 120` | digital PASS (240/240 bursts, TX_ACTUAL − PPS = 0). Scope, EPG1 output 4 rising 50 % → first DAC_A edge at half step: **174.936 ns**, sdev **27.0 ps** over 121 acquisitions, range 128 ps, no drift, no 2.5 ns or 10 ns jumps (`scope/scope_delay_20261027_162017/`) |
 | 2026-10-27 | **NTP** (board_setup §1.5) | `/etc/systemd/timesyncd.conf.d/rf-clock.conf`: `NTP=192.168.2.1` (RF-clock-PC's chrony) | NTPSynchronized = yes (before: not synchronized, RTC about 2.5 min off) |
 | 2026-10-27 | **M3** after recabling (DAC_A → BPF → 10 dB → ADC_B rebuilt after the scope runs) | `$run -m rf_clock.checks.m3_loopback 20 --save ...` | **PASS**: **287.1142 ns**, sdev 2.0 ps, PSL 22.1 dB. 30.5 ps longer than on 10-23, received level 0.5 dB lower, carrier phase −0.58 rad (was −0.35). Same VCO bands and MTS latencies, so attributed to the rebuilt RF path (connectors/filter); a pure cable-length change would also have moved the phase by about −1.1 rad, so it is not only that |
+| 2026-10-27 | **TWTT one-board self-test** | `$run -m rf_clock.twtt.node AB --seconds 300 --log twtt_AB_20261027_232952.jsonl` | **PASS**: 300/300 seconds valid, PSL 22.1–22.3 dB; θ = +0.06 ± 0.07 ps (truth 0), sdev 1.18 ps, Allan deviation 2.1e-12 at 1 s falling as 1/τ to 2.2e-14 at 100 s; one-way delay 287.1094 ns (drift −0.5 ps/min, cancels in θ). Notebook `../TWTT_selftest_Oct_27.ipynb`, figures `twtt/` |
 | 2026-10-23 | Step-by-step notebook (after a full restart: clocks + MTS) | `notebooks/loopback_step_by_step.ipynb` | delay **287.0833 ns**, 1.76 ps over 10 captures, PSL 22.2 dB: the same delay as M3 to about 1 ps across the restart |
 
 Board label set to `8873292600AB` in the board config on 2026-10-22 (only the label field changed).
@@ -67,4 +68,4 @@ Board label set to `8873292600AB` in the board config on 2026-10-22 (only the la
 * M2 analog half across restarts: repeat the scope run after reloading (and after rebooting) and compare the means. Also the 3.8 GHz `--waveform rect` envelope method (the real TX path).
 * PPS capture margin (board_setup.md 4.2), band table (4.7), NTP (1.5).
 * Repeatability across many restarts, long-term stability, precision against SNR (compare with `../simulation/`).
-* One-board two-way self-test, then two boards (M4).
+* Two boards (M4): PPS capture margin on EPG1 output 2, same 10 MHz distribution for both boards, one BPF + attenuator per direction.
