@@ -1,0 +1,33 @@
+{
+  "run": "20261028_001010",
+  "duration_s_per_board": 600,
+  "paired_seconds": 593,
+  "valid_seconds": 593,
+  "theta_mean_ps": -647.2,
+  "theta_sdev_ps": 8.0,
+  "theta_second_to_second_ps": 3.09,
+  "theta_short_term_residual_sdev_ps": 3.25,
+  "theta_minute_means_range_ps": 20.7,
+  "adev_1s": 5.33e-12,
+  "adev_at_tau": {
+    "1": 5.33e-12,
+    "2": 2.68e-12,
+    "3": 1.79e-12,
+    "4": 1.41e-12,
+    "7": 8.08e-13,
+    "11": 4.93e-13,
+    "18": 3.22e-13,
+    "29": 2.13e-13,
+    "47": 1.48e-13,
+    "75": 9.33e-14,
+    "122": 6.31e-14,
+    "197": 3.4e-14
+  },
+  "one_way_delay_ns": 292.5543,
+  "m_ab_ns": 291.9071,
+  "m_ab_sdev_ps": 1.88,
+  "m_ba_ns": 293.2015,
+  "m_ba_sdev_ps": 15.79,
+  "psl_min_db": 21.7,
+  "ba_level_relative_to_ab_db": -10.9
+}
