@@ -1,0 +1,39 @@
+{
+  "run": "20261028_124958",
+  "duration_s_per_board": 600,
+  "paired_seconds": 589,
+  "valid_seconds": 589,
+  "theta_mean_ps": -50.8,
+  "theta_sdev_ps": 1.02,
+  "theta_second_to_second_ps": 1.02,
+  "theta_short_term_residual_sdev_ps": 0.98,
+  "theta_minute_means_range_ps": 0.7,
+  "adev_1s": 1.77e-12,
+  "adev_at_tau": {
+    "1": 1.77e-12,
+    "2": 9.06e-13,
+    "3": 5.04e-13,
+    "4": 4.25e-13,
+    "7": 2.51e-13,
+    "11": 1.51e-13,
+    "18": 9.31e-14,
+    "29": 6.26e-14,
+    "46": 3.53e-14,
+    "75": 2.31e-14,
+    "121": 1.35e-14,
+    "196": 9.51e-15
+  },
+  "one_way_delay_ns": 292.0291,
+  "m_ab_ns": 291.9782,
+  "m_ab_sdev_ps": 1.69,
+  "m_ba_ns": 292.0799,
+  "m_ba_sdev_ps": 1.46,
+  "psl_min_db": 21.9,
+  "ba_level_relative_to_ab_db": 1.2,
+  "attenuators_db": {
+    "AB": 5,
+    "BA": 5
+  },
+  "repeat_of": "20261028_123745",
+  "repeat_theta_mean_ps": -50.66
+}
